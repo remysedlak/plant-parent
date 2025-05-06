@@ -1,6 +1,8 @@
 const Analytics = () => {
     return (
-        <h1 className="text-2xl my-2 text-left font-normal">Your Analytics</h1>
+        <div>
+            <h1 className="text-2xl mt-2 text-left bg-gray-200 p-2 rounded-xl">Your Analytics</h1>
+        </div>
     )
 }
 export default Analytics;

@@ -17,6 +17,12 @@ def get_photos(request):
     serializer = PlantImageSerializer(plants, many=True)
     return Response(serializer.data)
 
+@api_view(['GET'])
+def plants_needing_water(request):
+    plants = [plant for plant in Plant.objects.all() if plant.needs_watering()]
+    serializer = PlantSerializer(plants, many=True)
+    return Response(serializer.data)
+
 @api_view(['POST'])
 def upload_plant(request):
     serializer = PlantSerializer(data=request.data)
