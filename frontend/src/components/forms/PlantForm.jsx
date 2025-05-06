@@ -34,7 +34,7 @@ const PostPlant = ({ onToggle }) => {
 
     return (
         <div className="fixed inset-0 backdrop-blur-[2px] flex items-center justify-center z-50">
-            <div className="bg-gray-200 p-6 rounded-lg shadow-lg w-240 border border-gray-400">
+            <div className="bg-gray-200 p-3 mx-4 rounded-lg shadow-lg w-240 border border-gray-400">
                 <h2 className="text-xl font-normal mb-4">Add New Plant</h2>
                 <form onSubmit={handleSubmit}>
                     <div className="mb-4">

@@ -1,22 +1,45 @@
-import React from 'react';
-import {Link} from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
+    const [show, setShow] = useState(false);
+
+    const toggleMenu = () => {
+        setShow(!show);
+    };
+
     return (
-    <nav className="flex justify-between items-center rounded-lg mb-2">
-    <div className="flex items-center space-x-2">
-        <h1 className="text-3xl text-normal text-white font-bold p-2 rounded-sm">Plant Parent</h1>
-        <img src="/src/icons/garden-tree-svgrepo-com.svg" alt="tree" className="h-12"/>
-    </div>
-    <ul className="flex space-x-4 text-xl font-seminormal text-gray-700">
-        <li className="transition duration-100 ease-in-out hover:bg-blue-100 bg-gray-100 border-gray-400 border-1 p-1 rounded-sm"><Link to="/">Home</Link></li>
-        <li className="transition duration-100 ease-in-out hover:bg-blue-100 bg-gray-100 border-gray-400 border-1 p-1 rounded-sm"><Link to="/plants">Plants</Link></li>
-        <li className="transition duration-100 ease-in-out hover:bg-blue-100 bg-gray-100 border-gray-400 border-1 p-1 rounded-sm"><Link to="/gallery">Gallery</Link></li>
-        <li className="transition duration-100 ease-in-out hover:bg-blue-100 bg-gray-100 border-gray-400 border-1 p-1 rounded-sm"><Link to="/analytics">Analytics</Link></li>
-        
-        <li className="transition duration-100 ease-in-out hover:bg-blue-100 bg-gray-100 border-gray-400 border-1 p-1 rounded-sm"><Link to="/about">About</Link></li>
-    </ul>
-</nav>
-    )
-}
+        <div className="relative mb-16">
+            {/* Overlay */}
+            {show && (
+                <div 
+                    className="fixed inset-0 bg-gray-800 opacity-90 z-10" 
+                    onClick={toggleMenu}
+                ></div>
+            )}
+
+            {/* Navbar */}
+            <div className="fixed top-0 left-0 w-full flex flex-row justify-center items-center bg-gray-800 py-4 z-20 shadow-md">
+                <img 
+                    src="/src/icons/menu-alt-1-svgrepo-com.svg" 
+                    alt="tree" 
+                    className="h-12 absolute left-4 cursor-pointer" 
+                    onClick={toggleMenu}
+                />
+                <h1 className="text-3xl text-center text-normal text-white font-bold">Plant Parent</h1>
+            </div>
+
+            {/* Dropdown Menu */}
+            {show && (
+                <div className="absolute top-16 left-0 bg-yellow-50 shadow-md p-4 w-full border space-y-3 rounded-xl z-30">
+                    <Link to="/" className="block p-2 border bg-gray-100 rounded-xl" onClick={toggleMenu}>Home</Link>
+                    <Link to="/plants" className="block p-2 border bg-gray-100 rounded-xl" onClick={toggleMenu}>Plants</Link>
+                    <Link to="/gallery" className="block p-2 border bg-gray-100 rounded-xl" onClick={toggleMenu}>Gallery</Link>
+                    <Link to="/analytics" className="block p-2 border bg-gray-100 rounded-xl" onClick={toggleMenu}>Analytics</Link>
+                </div>
+            )}
+        </div>
+    );
+};
+
 export default Navbar;

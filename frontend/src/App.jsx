@@ -10,7 +10,7 @@ import { Route,Routes } from 'react-router-dom';
 
 function App() {
   return (
-    <div className="h-screen flex flex-col justify-top bg-gray-800 p-4">
+    <div className="min-h-screen bg-gray-800 p-6 overflow-x-hidden">
       <Navbar />
       <Routes>        
         <Route path="/Plants"  element={<Plants />}/>

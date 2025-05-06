@@ -18,7 +18,7 @@ const Plants = () => {
     }, []);
 
     return (
-        <div>
+        <div className="">
             <h1 className="text-2xl mt-2 text-left bg-gray-200 p-2 rounded-xl">Your Garden</h1>
             <div className="rounded-xl h-full p-2 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 mt-4 bg-gray-200">
                 {/* Upload Button */}
