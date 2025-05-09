@@ -15,7 +15,7 @@ const getWatering = async () => {
   return response?.data || [];
 };
 
-const NeedsWater = () => {
+const NeedsFertilizer = () => {
   const [response, setResponse] = useState([]);
 
   useEffect(() => {
@@ -29,20 +29,17 @@ const NeedsWater = () => {
 
   return (
     <div className="flex flex-col p-2 bg-gray-200 rounded-xl ">
-      <h1 className="text-2xl my-2 text-left font-normal">
-        Upcoming Plant Duties
-      </h1>
       <div className="flex flex-col gap-y-5">
         {response.length === 0 ? (
-          <span className="w-full h-50 bg-orange-50 hover:bg-orange-100 rounded-xl border p-2">
-            <h1 className="text-lg font-normal mt-2">Watering</h1>
-            <p className="text-md mt-2">All plants are properly hydrated!</p>
+          <span className="w-full h-50 bg-orange-50 hover:bg-orange-100 rounded-xl border-gray-400 border-1 p-2">
+            <h1 className="text-lg font-normal mt-2">Upcoming Fertilizing</h1>
+            <p className="text-md mt-2">All plants are properly fertilized!</p>
           </span>
         ) : (
           response.map((plant, index) => (
             <span
               key={index}
-              className="w-full h-50 bg-yellow-50 hover:bg-yellow-100 rounded-xl border p-2"
+              className="w-full h-50 bg-yellow-50 hover:bg-yellow-100 rounded-xl border-gray-400 border-1 p-2"
             >
               <h1 className="text-lg font-normal mt-2">{plant.name}</h1>
             </span>
@@ -53,4 +50,4 @@ const NeedsWater = () => {
   );
 };
 
-export default NeedsWater;
+export default NeedsFertilizer;

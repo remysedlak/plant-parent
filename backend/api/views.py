@@ -1,7 +1,7 @@
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from base.models import Plant, PlantImage
-from .serializers import PlantSerializer, PlantImageSerializer
+from .serializers import PlantSerializer, PlantImageSerializer, PlantWithLatestImageSerializer
 
 @api_view(['GET'])
 def get_plants(request):
@@ -22,6 +22,14 @@ def plants_needing_water(request):
     plants = [plant for plant in Plant.objects.all() if plant.needs_watering()]
     serializer = PlantSerializer(plants, many=True)
     return Response(serializer.data)
+
+@api_view(['GET'])
+def get_plants(request):
+    plants = Plant.objects.prefetch_related('images').all()  # Preload images to avoid N+1 query issue
+    serializer = PlantWithLatestImageSerializer(plants, many=True)
+    return Response(serializer.data)
+
+# ---------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 @api_view(['POST'])
 def upload_plant(request):

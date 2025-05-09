@@ -34,7 +34,15 @@ const Navbar = () => {
           alt="tree"
           className="h-12 ml-4"
         />
+        {/* Logo */}
+      <img
+        src="/src/icons/user-white.svg"
+        alt="user"
+        className="h-10 absolute right-4 cursor-pointer hover:bg-gray-600 bg-gray-800 p-1 bg-opacity-40 rounded-full"
+        ></img>
       </div>
+
+      
 
       {/* Dropdown Menu */}
 
