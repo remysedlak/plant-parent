@@ -49,7 +49,7 @@ const Plants = () => {
               key={plant.id}
               className="bg-yellow-50 hover:bg-yellow-100 transition duration-200 ease-in-out p-4 rounded-lg text-left border-gray-400 border w-full relative"
             >
-              <div className="flex flex-row">
+              <div className="flex  flex-row">
               <div>
                 <div className="flex flex-row gap-2 justify-between">
                 <h2 className="text-xl font-normal">{plant.name}</h2>
